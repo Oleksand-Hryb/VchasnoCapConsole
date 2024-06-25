@@ -1,10 +1,10 @@
-﻿using EUSignCP;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using VchasnoCapConsole.EUSign;
 
 namespace VchasnoCapConsole.Integration.OperationResult
 {
-    class OperationResultScalar<TDto> : OperationResultBase
+    public class OperationResultScalar<TDto> : OperationResultBase
     {
         public TDto Value { get; set; }
 

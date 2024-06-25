@@ -12,7 +12,7 @@ using System.Net.Http;
 
 namespace VchasnoCapConsole.Integration.ApiClient
 {
-    internal class ApiClient
+    public class ApiClient
     {
         protected static HttpClient HttpClient = new HttpClient();
 

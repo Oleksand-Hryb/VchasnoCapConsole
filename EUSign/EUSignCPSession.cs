@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Text.Json;
 using VchasnoCapConsole.Integration.OperationResult;
-using EUSignCP;
 
-namespace VchasnoCapConsole.VchasnoCapClient
+namespace VchasnoCapConsole.EUSign
 {
     class EUSignCPSession
     {
@@ -26,7 +25,7 @@ namespace VchasnoCapConsole.VchasnoCapClient
 
         public OperationResultScalar<IntPtr> GetSession()
         {
-            if (ValidTo <= DateTime.Now)
+            if (ValidTo <= DateTime.UtcNow)
             {
                 return OperationResultScalar<IntPtr>.CreateError("Session is expired!");
             }
@@ -43,7 +42,7 @@ namespace VchasnoCapConsole.VchasnoCapClient
 
         public OperationResultScalar<byte[]> GetClientData()
         {
-            if (ValidTo <= DateTime.Now)
+            if (ValidTo <= DateTime.UtcNow)
             {
                 return OperationResultScalar<byte[]>.CreateError("Session is expired!");
             }
@@ -266,7 +265,7 @@ namespace VchasnoCapConsole.VchasnoCapClient
 
             _session = default;
             _clientData = null;
-            ValidTo = DateTime.Now;
+            ValidTo = DateTime.UtcNow;
         }
 
         public static OperationResultScalar<EUSignCPSession> Create(byte[] certificate)
@@ -280,7 +279,7 @@ namespace VchasnoCapConsole.VchasnoCapClient
                 }
             }
 
-            var validTo = DateTime.Now.AddSeconds(SessionExpireTimeInSeconds);
+            var validTo = DateTime.UtcNow.AddSeconds(SessionExpireTimeInSeconds);
             var error = IEUSignCP.ClientDynamicKeySessionCreate(SessionExpireTimeInSeconds + SessionExpireTimeInSecondsDelta, certificate, out var sessionPtr, out var clientData);
 
             if (error == IEUSignCP.EU_ERROR_NONE)

@@ -1,6 +1,6 @@
 ﻿namespace VchasnoCapConsole.Integration.OperationResult
 {
-    enum OperationStatus
+    public enum OperationStatus
     {
         Success,
         Error

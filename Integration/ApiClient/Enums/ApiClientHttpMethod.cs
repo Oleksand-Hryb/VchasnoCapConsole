@@ -1,6 +1,6 @@
 ﻿namespace VchasnoCapConsole.Integration.ApiClient.Enums
 {
-    enum ApiClientHttpMethod
+    public enum ApiClientHttpMethod
     {
         GET,
         POST,
@@ -9,7 +9,7 @@
         DELETE,
     }
 
-    static class ApiClientHttpMethodUtil
+    public static class ApiClientHttpMethodUtil
     {
         internal static bool HasContent(this ApiClientHttpMethod method) =>
             method == ApiClientHttpMethod.POST ||

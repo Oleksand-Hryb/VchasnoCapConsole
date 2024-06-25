@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace VchasnoCapConsole.Integration.OperationResult
 {
-    abstract class OperationResultBase
+    public abstract class OperationResultBase
     {
         public OperationStatus Status { get; set; }
 

@@ -1,6 +1,6 @@
 ﻿namespace VchasnoCapConsole.Integration.ApiClient.Enums
 {
-    enum ApiClientAuthenticationType
+    public enum ApiClientAuthenticationType
     {
         None,
         BasicHttp,

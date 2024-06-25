@@ -1,4 +1,4 @@
-﻿namespace VchasnoCapConsole.VchasnoCapClient.Data
+﻿namespace VchasnoCapConsole.VchasnoCap.Data.Common
 {
     class VchasnoCapSignedData
     {
